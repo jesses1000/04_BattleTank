@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Tank.h"
+#include "TankBarrel.h"
+#include "TankTurret.h"
 #include "TankAimingComponent.h"
 
 
@@ -30,10 +32,14 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 }
 
 
+void ATank::SetTurretReference(UTankTurret * TurretToSet)
+{
+	TankAimingComponent->SetTurretReference(TurretToSet);
+}
+
 
 void ATank::SetBarrelReference(UTankBarrel * BarrelToSet)
 {
-	//Barrel = BarrelToSet;
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
 
