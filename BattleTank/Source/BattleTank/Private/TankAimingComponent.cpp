@@ -37,6 +37,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
+		false,
+		0.f,
+		0.f,
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);
 	 
@@ -44,6 +47,11 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards( AimDirection );
+		//UE_LOG(LogTemp, Warning, TEXT("Aim Solution Found"));
+	}
+	else
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("No Aim Solution Found"));
 	}
 
 }
@@ -57,7 +65,7 @@ void UTankAimingComponent::MoveBarrelTowards( FVector AimDirection )
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
 	// Move the barrel the right amount this frame given the max elev speed and frame time
-	Barrel->Elevate(5); // TODO: remove magic number
+	Barrel->Elevate(DeltaRotator.Pitch);
 
 }
 
