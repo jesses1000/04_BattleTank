@@ -8,8 +8,8 @@
 class UTankTurret;
 class UTankBarrel; // Forward Declaration
 class UTankAimingComponent;
+class UTankMovementComponent;
 class AProjectile;
-
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -34,6 +34,9 @@ public:
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
+
+	UPROPERTY(BlueprintReadOnly)
+	UTankMovementComponent* TankMovementComponent = nullptr;
 
 
 private:
