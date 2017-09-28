@@ -20,7 +20,7 @@ private:
 	
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float AcceptanceRadius = 3000.f;
 
 };
