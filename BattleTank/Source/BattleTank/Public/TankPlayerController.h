@@ -23,6 +23,7 @@ protected:
 
 private:
 	virtual void BeginPlay() override;
+	virtual void SetPawn(APawn* InPawn) override; // Called when pawn is possessed
 	virtual void Tick(float DeltaTime) override;
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
@@ -40,6 +41,8 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float CrossHairYLocation = 0.33333f;
 
+	UFUNCTION()
+	void OnPossessedTankDeath();
 
 	
 };
