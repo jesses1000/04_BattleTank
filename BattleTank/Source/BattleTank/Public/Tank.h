@@ -5,10 +5,10 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
-//class UTankTurret; // Forward Declaration
-//class UTankBarrel;
-//class AProjectile;
-//class UTankMovementComponent;
+
+
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTankDelegate);
 
 
 UCLASS()
@@ -23,6 +23,8 @@ public:
 
 	UFUNCTION(BlueprintPure, Category="Health")
 	float GetHealthPercent() const;
+
+	FTankDelegate OnDeath;
 
 private:
 	// Sets default values for this pawn's properties
